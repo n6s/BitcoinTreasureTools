@@ -1,0 +1,34 @@
+# BitcoinTreasureTools
+
+**Tools for Crafting and Cracking Bitcoin Keys**
+
+Welcome to `BitcoinTreasureTools`, a pair of Python scripts born from one person’s plunge into the wild world of Bitcoin security and treasure hunting: `mnemonic_toolkit.py` and `keyreaver.py`. This isn’t just code—it’s a story of curiosity, creativity, and a few sleepless nights.
+
+## My Journey
+It started with Bitcoin’s bull run catching my eye as retirement loomed. I bought some coins, not on Mt. Gox (phew), and dove in to justify my gamble. I learned about mnemonics—those magical phrases that could smuggle wealth across borders or even beyond the grave via a psychic (if you believe in that sort of thing). Inspired, I wrote `mnemonic_toolkit.py` to turn inspirational quotes into BIP-39 mnemonics. It extracts prefixes, suggests checksum words, and collaborates with a local LLM to weave memorable phrases that hide keys in plain sight. Months of tinkering later, I had plaques and trophies encoding my savings—security as art.
+
+Then came the reckoning. A YouTube video on Brainflayer showed how weak brainwallets crumble under brute force. My euphoria turned to dread—my clever quotes felt like a neon sign for hackers. I scrambled, migrating my funds to a 2-of-3 multisig wallet with Trezors, backed by SLIP-39 shares etched on metal. Fort Knox, eat your heart out.
+
+But curiosity lingered. Could it really be that easy to find funded wallets? I upgraded my rig, set up a Bitcoin Core full node with Electrs and Electrum, and built `keyreaver.py`. Its mission: scour entropy values for treasure, generating keys across BIP-39, SLIP-39, brainwallets, and every address type (legacy, SegWit, Taproot, HD paths). It’s slow—26,052 entropies in 12 hours—but it taught me something profound: the 2^256 keyspace is vast, but humans shrink it with dumb mistakes. Bad RNGs, predictable passphrases, favorite numbers—we’re our own worst enemy.
+
+## The Tools
+- `mnemonic_toolkit.py`: Transforms quotes into BIP-39 mnemonics, balancing security and memorability. Perfect for hiding keys in plain sight—until you realize brute-forcers don’t care.
+- `keyreaver.py`: A relentless keyspace explorer. Tests entropies across schemes and address types, hunting for funds. Spoiler: it’s a trillion-year grind, but it proves how safe you are if you avoid human folly.
+
+## Lessons Learned
+Bitcoin’s security isn’t the problem—humans are. The address space is a cosmic desert; only our shortcuts (think “00000000” as a nuclear launch code) make it crackable. These tools reflect my shift from naive optimism to cautious confidence. Use them to experiment, but don’t shoot yourself in the foot.
+
+## Setup
+1. Clone this repo: `git clone https://github.com/n6s/BitcoinTreasureTools.git`
+2. Install dependencies: `pip install -r requirements.txt` (you’ll need to add this file—list your libs!)
+3. For `keyreaver.py`, run a Bitcoin Core node with `txindex=1`, plus Electrs and Electrum daemon.
+4. Tweak configs and run: `python mnemonic_toolkit.py` or `python keyreaver.py`.
+
+## Warning
+
+These are experiments, not production tools. Don’t trust them with real funds unless you’ve audited every line. And if you hunt for treasure, good luck—you’ll need it.
+
+## Thanks
+
+To the Bitcoin community for the rabbit hole, and to anyone reading this for joining my journey. PRs welcome!
+
